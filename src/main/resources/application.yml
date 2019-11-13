@@ -1,0 +1,15 @@
+
+#logback\u914D\u7F6E
+#logging:
+#  pattern:
+##    \u8BBE\u7F6E\u63A7\u5236\u53F0\u8F93\u51FA\u683C\u5F0F
+#    console: "%d %msg%n"
+#  file:
+#    path: D:/learn/log/sell.log
+## level: DEBUG
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: lijia123
+    url: jdbc:mysql://114.215.147.110/yangk?characterEncoding=utf-8&useSSL=false
