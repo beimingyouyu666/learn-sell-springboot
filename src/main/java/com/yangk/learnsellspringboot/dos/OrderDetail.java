@@ -7,8 +7,10 @@ import javax.persistence.Id;
 import java.math.BigDecimal;
 
 /**
- * Created by 廖师兄
- * 2017-06-11 17:20
+ * @Description TODO
+ * @Author yangkun
+ * @Date 2019/11/21
+ * @Version 1.0
  */
 @Entity
 @Data

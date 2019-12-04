@@ -1,5 +1,8 @@
 package com.yangk.learnsellspringboot.dos;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.yangk.learnsellspringboot.enums.ProductStatusEnum;
+import com.yangk.learnsellspringboot.util.EnumUtil;
 import lombok.Data;
 import org.hibernate.annotations.DynamicUpdate;
 
@@ -9,9 +12,10 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 /**
- * 商品
- * Created by 廖师兄
- * 2017-05-09 11:30
+ * @Description TODO
+ * @Author yangkun
+ * @Date 2019/11/21
+ * @Version 1.0
  */
 @Entity
 @Data
@@ -38,6 +42,7 @@ public class ProductInfo {
 
     /** 状态, 0正常1下架. */
 //    private Integer productStatus = ProductStatusEnum.UP.getCode();
+    private Integer productStatus;
 
     /** 类目编号. */
     private Integer categoryType;
@@ -46,8 +51,8 @@ public class ProductInfo {
 
     private Date updateTime;
 
-//    @JsonIgnore
-//    public ProductStatusEnum getProductStatusEnum() {
-//        return EnumUtil.getByCode(productStatus, ProductStatusEnum.class);
-//    }
+    @JsonIgnore
+    public ProductStatusEnum getProductStatusEnum() {
+        return EnumUtil.getByCode(productStatus, ProductStatusEnum.class);
+    }
 }

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.Arrays;
 import java.util.List;
 
 @RunWith(SpringRunner.class)
@@ -31,4 +32,18 @@ public class ProductCategoryRepositoryTest {
         Assert.assertNotNull(all);
     }
 
+    @Test
+    public void updateTest() {
+        ProductCategory productCategory = productCategoryRepository.findById(1).get();
+        productCategory.setCategoryType(22);
+        productCategoryRepository.save(productCategory);
+
+    }
+
+    @Test
+    void findByCategoryTypeIn() {
+        List<Integer> productCategories = Arrays.asList(2,22);
+        List<ProductCategory> byCategoryTypeIn = productCategoryRepository.findByCategoryTypeIn(productCategories);
+        Assert.assertNotEquals(0,byCategoryTypeIn.size());
+    }
 }

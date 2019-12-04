@@ -6,8 +6,10 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 /**
- * Created by 廖师兄
- * 2017-07-23 23:02
+ * @Description TODO
+ * @Author yangkun
+ * @Date 2019/11/21
+ * @Version 1.0
  */
 @Data
 @Entity

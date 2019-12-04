@@ -9,7 +9,11 @@
 ## level: DEBUG
 spring:
   datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
+    driver-class-name: com.mysql.jdbc.Driver
     username: root
     password: lijia123
     url: jdbc:mysql://114.215.147.110/yangk?characterEncoding=utf-8&useSSL=false
+
+server:
+  servlet:
+    context-path: /sell
