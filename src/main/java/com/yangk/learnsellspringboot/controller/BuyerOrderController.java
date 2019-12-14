@@ -5,6 +5,7 @@ import com.yangk.learnsellspringboot.dto.OrderDTO;
 import com.yangk.learnsellspringboot.enums.ResultEnum;
 import com.yangk.learnsellspringboot.exception.SellException;
 import com.yangk.learnsellspringboot.form.OrderForm;
+import com.yangk.learnsellspringboot.service.BuyerService;
 import com.yangk.learnsellspringboot.service.OrderService;
 import com.yangk.learnsellspringboot.util.ResultVOUtil;
 import com.yangk.learnsellspringboot.vo.ResultVO;
@@ -36,8 +37,8 @@ public class BuyerOrderController {
     @Autowired
     private OrderService orderService;
 
-//    @Autowired
-//    private BuyerService buyerService;
+    @Autowired
+    private BuyerService buyerService;
 
     @PostMapping("/create")
     public ResultVO<Map<String, String>> create(@Valid OrderForm orderForm,
@@ -83,17 +84,15 @@ public class BuyerOrderController {
     @GetMapping("/detail")
     public ResultVO<OrderDTO> detail(@RequestParam("openid") String openid,
                                      @RequestParam("orderId") String orderId) {
-//        OrderDTO orderDTO = buyerService.findOrderOne(openid, orderId);
-//        return ResultVOUtil.success(orderDTO);
-        return ResultVOUtil.success(null);
+        OrderDTO orderDTO = buyerService.findOrderOne(openid, orderId);
+        return ResultVOUtil.success(orderDTO);
     }
 
     //取消订单
     @PostMapping("/cancel")
     public ResultVO cancel(@RequestParam("openid") String openid,
                            @RequestParam("orderId") String orderId) {
-//        buyerService.cancelOrder(openid, orderId);
-//        return ResultVOUtil.success();
+        buyerService.cancelOrder(openid, orderId);
         return ResultVOUtil.success();
     }
 }

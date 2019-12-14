@@ -1,6 +1,8 @@
 package com.yangk.learnsellspringboot.dto;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.yangk.learnsellspringboot.dos.OrderDetail;
+import com.yangk.learnsellspringboot.util.serializer.Date2LongSerializer;
 import lombok.Data;
 
 import java.math.BigDecimal;
@@ -14,7 +16,7 @@ import java.util.List;
  * @Version 1.0
  */
 @Data
-//@JsonSerialize(include = JsonSerialize.Inclusion.NON_NULL)
+// -- json化回传前端时，值为null的属性不传，这里只针对这个类，可以在配置文件中全局控制
 //@JsonInclude(JsonInclude.Include.NON_NULL)
 public class OrderDTO {
 
@@ -43,11 +45,11 @@ public class OrderDTO {
     private Integer payStatus;
 
     /** 创建时间. */
-//    @JsonSerialize(using = Date2LongSerializer.class)
+    @JsonSerialize(using = Date2LongSerializer.class)
     private Date createTime;
 
     /** 更新时间. */
-//    @JsonSerialize(using = Date2LongSerializer.class)
+    @JsonSerialize(using = Date2LongSerializer.class)
     private Date updateTime;
 
     List<OrderDetail> orderDetailList;
